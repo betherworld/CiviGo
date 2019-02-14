@@ -40,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        try {
+            System.out.println("starting");
+            new FinFourHandler().Login();
+            System.out.println("done");
+        }
+        catch(Exception e){
+            System.out.println(e.toString());
+        }
     }
 
 }
