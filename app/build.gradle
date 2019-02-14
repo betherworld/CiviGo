@@ -27,6 +27,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:28.+'
     compile 'com.android.support:design:28.+'
+    compile 'com.android.volley:volley:1.1.1'
     compile 'com.android.support:support-vector-drawable:28.+'
     testCompile 'junit:junit:4.12'
 }
