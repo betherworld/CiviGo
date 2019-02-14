@@ -2,6 +2,7 @@ package com.example.bicudo.civigo;
 
 
 import android.Manifest;
+import android.arch.core.util.Function;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,11 +43,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        try {
-            new FinFourHandler().Login();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
         // Navigation Tabs
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
@@ -79,6 +76,20 @@ public class MainActivity extends AppCompatActivity {
         	}
         });
 
+        try {
+            FinFourHandler f = new FinFourHandler();
+            f.Login();
+            f.getEntries(252, new Function<JSONObject, Void>() {
+                @Override
+                public Void apply(JSONObject input) {
+                    System.out.println(input.toString());
+                    return null;
+                }
+            });
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
