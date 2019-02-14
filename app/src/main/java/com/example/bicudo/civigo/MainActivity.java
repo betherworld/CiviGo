@@ -43,6 +43,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mTextMessage = (TextView) findViewById(R.id.message);
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        findViewById(R.id.navigation_proposals).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent porposalActivity = new Intent(MainActivity.this, ProposalActivity.class);
+                startActivity(porposalActivity);
+            }
+        });
+
+        findViewById(R.id.navigation_fixes).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent fixesActivity = new Intent(MainActivity.this, FixesActivity.class);
+                startActivity(fixesActivity);
+            }
+        });
+
         findViewById(R.id.navigation_map).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,9 +72,7 @@ public class MainActivity extends AppCompatActivity {
         	}
         });
 
-        mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
     }
 
     @Override
