@@ -29,5 +29,7 @@ dependencies {
     compile 'com.android.support:design:28.+'
     compile 'com.android.volley:volley:1.1.1'
     compile 'com.android.support:support-vector-drawable:28.+'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'org.osmdroid:osmdroid-android:5.6.4'
     testCompile 'junit:junit:4.12'
 }
