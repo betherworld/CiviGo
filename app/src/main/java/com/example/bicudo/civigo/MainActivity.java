@@ -13,6 +13,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import org.json.JSONException;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_PERMISSIONS = 20;
@@ -42,11 +44,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        try {
+            new FinFourHandler().Login();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
+        // Navigation Tabs
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        // Action for clicking Proposals
         findViewById(R.id.navigation_proposals).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Action for clicking Fixes
         findViewById(R.id.navigation_fixes).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Action for clicking Map
         findViewById(R.id.navigation_map).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
