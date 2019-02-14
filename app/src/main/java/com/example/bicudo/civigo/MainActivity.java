@@ -18,7 +18,6 @@ import org.json.JSONException;
 public class MainActivity extends AppCompatActivity {
 
     private static final int REQUEST_PERMISSIONS = 20;
-    private TextView mTextMessage;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -27,10 +26,8 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_proposals:
-                    mTextMessage.setText("Porposals");
                     return true;
                 case R.id.navigation_fixes:
-                    mTextMessage.setText("Fixes");
                     return true;
                 case R.id.navigation_map:
 	    		    return true;
@@ -51,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Navigation Tabs
-        mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
